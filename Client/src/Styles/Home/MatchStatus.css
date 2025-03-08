@@ -4,10 +4,13 @@
   align-items: center;
   padding: 1rem;
   border-radius: 8px;
-  background-color: #f9f9f9;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.match-status.full-width {
+  width: 100%;
 }
 
 .match-status h2 {
@@ -50,7 +53,6 @@
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #fff;
   width: 32%; /* Increase width of the cards */
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

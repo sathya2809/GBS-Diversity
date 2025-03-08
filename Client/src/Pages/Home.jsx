@@ -1,8 +1,8 @@
 import React from 'react'
-import MatchStatus from '../Components/Common/Home/MatchStatus'
-import Upcoming from '../Components/Common/Home/Upcoming'
-import Rating from '../Components/Common/Home/Rating'
-import Welcome from '../Components/Common/Home/Welcome'
+import MatchStatus from '../Components/Home/MatchStatus'
+import Upcoming from '../Components/Home/Upcoming'
+import Rating from '../Components/Home/Rating'
+import Welcome from '../Components/Home/Welcome'
 import '../Styles/Home.css'
 
 const Home = () => {

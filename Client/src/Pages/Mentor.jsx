@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Sidebar from '../Components/Common/Mentor/Sidebar';
-import AllMentor from '../Components/Common/Mentor/AllMentor';
-import Matching from '../Components/Common/Mentor/Matching';
-import Learning from '../Components/Common/Mentor/Learning';
+import Sidebar from '../Components/Mentor/Sidebar';
+import AllMentor from '../Components/Mentor/AllMentor';
+import Matching from '../Components/Mentor/Matching';
+import Learning from '../Components/Mentor/Learning';
 import '../Styles/Mentor.css';
 
 const Mentor = () => {
