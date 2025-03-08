@@ -10,6 +10,7 @@ import Signup from './Pages/Auth/Signup'
 import Notifications from './Pages/Notifications'
 import Resource from './Pages/Resource' // Import Resource page
 import Header from './Components/Common/Header'
+import Footer from './Components/Common/Footer' // Import Footer component
 import { ThemeProvider } from './Context/ThemeToggle.jsx'
 import './App.css'
 
@@ -32,6 +33,7 @@ const App = () => {
               <Route path="/notifications" element={<Notifications />} />
             </Routes>
           </div>
+          <Footer /> {/* Add Footer component */}
         </Router>
       </div>
     </ThemeProvider>
