@@ -12,6 +12,7 @@ import { getAllMentors } from "../controllers/getAllMentors.js";
 import { ProfileDataWithID, ProfileDataWithEmail } from "../controllers/ProfileData.js";
 import Update from "../controllers/Update.js";
 import { MatchOneMentee,MatchOneMentor } from "../controllers/MatchForOne.js";
+import { getMatchedMentees,getMatchedMentors } from "../controllers/getMatchedMentors.js";
 
 router.post("/signIn", Register);
 router.post("/logIn",login);
@@ -23,6 +24,8 @@ router.post("/getProfileDataWithEmail", ProfileDataWithEmail);
 router.post("/updateProfile",Update);
 router.post("/MatchOneMentee", MatchOneMentee);
 router.post("/MatchOneMentor", MatchOneMentor);
+router.post("/getMatchedMentees",getMatchedMentees);
+router.post("/getMatchedMentors", getMatchedMentors);
 
 
 
