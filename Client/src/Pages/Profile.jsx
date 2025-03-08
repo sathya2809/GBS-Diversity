@@ -3,22 +3,46 @@ import '../Styles/Profile.css'
 import { FaGithub, FaLinkedin, FaTwitter, FaEdit, FaCheck, FaTimes, FaBook, FaUserFriends, FaStar, FaSave, FaUpload } from 'react-icons/fa'
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [tempData, setTempData] = useState(null);
-  const [profileData, setProfileData] = useState({
-    name: 'John Doe',
-   // title: 'Software Developer',
-    email: 'john.doe@example.com',
+  const defaultData = {
+    name: 'Diva',
+    email: 'diva.doe@example.com',
     location: 'New York, USA',
     education: {
       degree: 'Computer Science',
       school: 'University of Technology',
       years: '2018 - 2022'
     },
-    gender: 'Prefer not to say',
+    gender: 'Female',
     interests: ['Technology', 'Leadership', 'Innovation'],
     learningPreferences: ['Visual Learning', 'Hands-on Practice'],
     careerGoals: 'Become a Senior Full Stack Developer in 2 years'
+  };
+
+  const [profileData, setProfileData] = useState(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const user= userData?.data ||null;
+    return user
+      ? {
+          name: user.mentee_name || user.mentor_name || defaultData.name,
+          email: user.email || defaultData.email,
+          location: user.location || defaultData.location,
+          education: {
+            degree: user.education?.degree || defaultData.education.degree,
+            school: user.education?.school || defaultData.education.school,
+            years: user.education?.years || defaultData.education.years
+          },
+          gender: user.gender || defaultData.gender,
+          interests: user.interests || defaultData.interests,
+          learningPreferences: user.learningPreferences || defaultData.learningPreferences,
+          careerGoals: user.career_goal || defaultData.careerGoals
+        }
+      : defaultData;
+  });
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [tempData, setTempData] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(() => {
+    return localStorage.getItem('uploadedImage') || null;
   });
 
   const [metrics] = useState({
@@ -36,7 +60,6 @@ const Profile = () => {
   });
 
   const fileInputRef = useRef();
-  const [uploadedImage, setUploadedImage] = useState(null);
   
   const handleFileUpload = (event) => {
     const file = event.target.files[0];

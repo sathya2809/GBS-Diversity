@@ -47,8 +47,9 @@
 }
 
 .filter-btn {
-  position: absolute;
-  right: 10px;
+  position: relative;
+  bottom: 6px;
+  width: 10%;
   background: #764ba2;
   color: white;
   border: none;

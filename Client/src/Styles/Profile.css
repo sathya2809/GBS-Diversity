@@ -362,6 +362,7 @@ h1, h2, h3 {
 }
 
 .section-edit-btn {
+  width: 20%;
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
