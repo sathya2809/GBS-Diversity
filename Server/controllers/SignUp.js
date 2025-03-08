@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import Mentor from "../models/mentors.model.js";
 import Mentee from "../models/mentees.model.js";
 import User from "../models/users.model.js";
+import { matchOneMenteeLogic, matchOneMentorLogic } from "./MatchForOne.js";
 
 const Register = async (req, res) => {
 
@@ -16,7 +17,8 @@ const Register = async (req, res) => {
         password,
     } = req.body;
 
-    if (!email || !role || !name || !password) {
+    if (!email || !name || !password) {
+        
         return res.status(400).json({ message: "Incomplete Information" });
     }
     try {
@@ -31,7 +33,7 @@ const Register = async (req, res) => {
             password: hashedPassword,
             role,
         });
-        if (role === "1") {
+        if (role === 1) {
             await Mentor.create({
                 user_id: newUser.user_id, // Use the auto-incremented userId
                 description,
@@ -42,6 +44,7 @@ const Register = async (req, res) => {
                 career_goal,
                 interests,
             });
+            await matchOneMentorLogic(newUser.user_id);
         }
         else {
             await Mentee.create({
@@ -54,6 +57,7 @@ const Register = async (req, res) => {
                 career_goal,
                 interests,
             });
+            await matchOneMenteeLogic(newUser.user_id);
         }
         res.status(200).json({
             message: "User registered successfully",

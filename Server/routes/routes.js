@@ -9,15 +9,20 @@ import {
     verifyResetToken,
   } from "../utils/jwt.js";
 import { getAllMentors } from "../controllers/getAllMentors.js";
-import { ProfileData } from "../controllers/ProfileData.js";
+import { ProfileDataWithID, ProfileDataWithEmail } from "../controllers/ProfileData.js";
+import Update from "../controllers/Update.js";
+import { MatchOneMentee,MatchOneMentor } from "../controllers/MatchForOne.js";
 
 router.post("/signIn", Register);
 router.post("/logIn",login);
 router.post("/refresh-token", refreshAccessToken);
 router.get("/logout", logoutUser);
 router.post("/getAllMentors",getAllMentors);
-router.post("/getProfileData", ProfileData);
-
+router.post("/getProfileDataWithID", ProfileDataWithID);
+router.post("/getProfileDataWithEmail", ProfileDataWithEmail);
+router.post("/updateProfile",Update);
+router.post("/MatchOneMentee", MatchOneMentee);
+router.post("/MatchOneMentor", MatchOneMentor);
 
 
 
