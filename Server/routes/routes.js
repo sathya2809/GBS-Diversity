@@ -14,6 +14,8 @@ import Update from "../controllers/Update.js";
 import { MatchOneMentee,MatchOneMentor } from "../controllers/MatchForOne.js";
 import { getMatchedMentees,getMatchedMentors } from "../controllers/getMatchedMentors.js";
 import { connectMenteeWithMentor } from "../controllers/sendmail.js";
+import { insertCourses } from "../controllers/addCourses.js";
+import { getRecommendedCourses } from "../controllers/getRecommendedCourses.js";
 
 router.post("/signIn", Register);
 router.post("/logIn",login);
@@ -28,7 +30,8 @@ router.post("/MatchOneMentor", MatchOneMentor);
 router.post("/getMatchedMentees",getMatchedMentees);
 router.post("/getMatchedMentors", getMatchedMentors);
 router.post("/connect", connectMenteeWithMentor);
-
+router.post("/addCourse",insertCourses);
+router.post("/getCourse",getRecommendedCourses);
 
 
 
