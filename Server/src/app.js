@@ -2,8 +2,11 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 import routes from "../routes/routes.js";
-const app = express();
+import dotenv from "dotenv";
+dotenv.config();
 
+const app = express();
+console.log(process.env.CORS_ORIGIN);
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN,
