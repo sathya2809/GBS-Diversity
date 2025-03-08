@@ -7,14 +7,13 @@
 }
 
 .app {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0; /* Remove padding */
-  text-align: center;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the app takes full viewport height */
 }
 
 .content {
+  flex: 1; /* Allow content to grow and take available space */
   padding-top: 4rem; /* Add padding to top of content */
 }
 

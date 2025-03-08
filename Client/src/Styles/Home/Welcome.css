@@ -4,9 +4,7 @@
   height: 100vh; /* Set height to full viewport height */
   background: url('/bg.jpg') no-repeat center center; /* Use image background */
   background-size: cover; /* Ensure the image covers the entire section */
-  color: black; /* Change text color to black */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center; /* Center align the text */
@@ -20,32 +18,33 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 255, 0.5), rgba(46, 69, 217, 0.5)); /* Gradient overlay */
+  background: linear-gradient(135deg, rgba(145, 176, 227, 0.9), rgba(176, 132, 221, 0.9)); /* Linear gradient background */
   z-index: 1;
 }
 
-.welcome-section h1,  
-.welcome-section p {
+.welcome-content {
   position: relative;
   z-index: 2;
-  color: white; /* Change color to white */
+  padding: 2rem;
+  border-radius: 8px;
 }
 
-.welcome-section h1 {
+.welcome-title {
   margin: 0;
   font-size: 3rem;
+  color: white; /* Change text color to white */
   animation: slideIn 1.5s ease-in-out; /* Animation */
 }
 
-.welcome-section p {
+.welcome-text {
   margin: 0.5rem 0 0;
   font-size: 1.5rem;
+  color: white; /* Change text color to white */
   animation: slideIn 2s ease-in-out; /* Animation */
 }
 
 .mentor-dashboard-btn {
-  position: relative;
-  z-index: 2;
+  display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   background-color: #007bff;
@@ -60,6 +59,11 @@
   background-color: #0056b3;
   transform: scale(1.05);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.mentor-dashboard-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add active state effect */
 }
 
 @keyframes fadeIn {

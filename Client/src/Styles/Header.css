@@ -1,5 +1,5 @@
 .header {
-  background-color: #333;
+  background-color: white; /* Change background color to white */
   padding: 1rem;
   position: fixed;
   top: 0;
@@ -16,7 +16,7 @@
 }
 
 .header:hover {
-  background-color: #444;
+  background-color: #f0f0f0; /* Light grey on hover */
 }
 
 .header-left,
@@ -33,7 +33,7 @@
 }
 
 .nav-link {
-  color: white;
+  color: black; /* Change text color to black */
   text-decoration: none;
   font-size: 1.2rem;
   margin: 0 1rem;
@@ -41,34 +41,34 @@
 }
 
 .nav-link:hover {
-  color: #61dafb;
+  color: #007bff; /* Blue on hover */
   transform: scale(1.1);
 }
 
 .nav-link button {
   background: none;
   border: none;
-  color: white;
+  color: black; /* Change text color to black */
   cursor: pointer;
   font-size: 1.2rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-link button:hover {
-  color: #61dafb;
+  color: #007bff; /* Blue on hover */
   transform: scale(1.1);
 }
 
 .login-btn {
-  background-color: white;
-  color: #333;
+  background-color: #007bff; /* Blue background */
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   margin-right: 0.5rem;
 }
 
 .signup-btn {
-  background-color: blue;
+  background-color: #0056b3; /* Darker blue background */
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;

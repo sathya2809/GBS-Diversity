@@ -1,0 +1,90 @@
+.resources-home {
+  width: 100%;
+  padding: 1rem;
+  background: white; /* Change background to white */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.resources-home h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.resources-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Change card background to gradient blue */
+  margin-bottom: 1rem;
+  width: 28%; /* Reduce width to ensure equal width for all components */
+  height: 200px; /* Increase height of the cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resource-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: white; /* Change text color to white */
+}
+
+.resource-card p {
+  margin: 0.5rem 0;
+  color: white; /* Change text color to white */
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: #0056b3; /* Solid blue color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #003f7f; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+.more-text {
+  display: block;
+  margin: 1rem auto;
+  color: #007bff; /* Solid blue color */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.more-text:hover {
+  color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

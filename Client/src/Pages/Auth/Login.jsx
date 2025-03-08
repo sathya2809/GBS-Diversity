@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from 'react-router-dom';
 import "../../Styles/Auth.css";
 import { login } from "../../operations/services/authApi";
 import {useDispatch} from "react-redux";
@@ -15,43 +16,30 @@ const Login = () => {
     dispatch(login(email,password,navigate))
   };
 
-  return (
-    <div className="auth-page">
-      <div className="auth-left">
-        <div className="auth-content">
-          <h1>Welcome Page</h1>
-          <p>Log in to continue access</p>
+    return (
+        <div className="auth-container">
+            <h2>Login</h2> {/* Add title for the login page */}
+            <form onSubmit={handleLogin}>
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                <button type="submit">Login</button>
+            </form>
+            <p>or</p>
+            <p>Don't have an account? <Link to="/signup">Signup</Link></p>
         </div>
-      </div>
-      <div className="auth-right">
-        <div className="auth-form">
-          <h2>Log In</h2>
-          <form onSubmit={handleLogin}>
-            <input
-              type="email"
-              placeholder="Email Address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit">Continue</button>
-          </form>
-          <div className="social-login">
-            <p>Or Connect with Social Media</p>
-            <button className="twitter-btn">Sign In with Twitter</button>
-            <button className="facebook-btn">Sign In with Facebook</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Login;

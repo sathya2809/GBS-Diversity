@@ -1,122 +1,67 @@
-/* General Styling */
-.auth-page {
-    display: flex;
-    height: 100vh;
-    font-family: "Arial", sans-serif;
-  }
-  
-  /* Left Side Styling */
-  .auth-left {
-    flex: 1;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .auth-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .auth-content p {
-    font-size: 18px;
-  }
-  
-  /* Right Side Styling */
-  .auth-right {
-    flex: 1;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .auth-form {
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Input Fields */
-  input {
-    width: 90%;
-    padding: 12px 15px;
-    margin: 15px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  input:focus {
-    border-color: #2575fc;
-  }
-  
-  /* Button Styling */
-  button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"] {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #fff;
-    transition: background 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background: linear-gradient(135deg, #2575fc, #6a11cb);
-  }
-  
-  /* Social Login Buttons */
-  .social-login p {
-    margin: 20px 0 10px;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .twitter-btn,
-  .facebook-btn {
-    width: 100%;
-    padding: 12px;
-    margin: 5px 0;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .twitter-btn {
-    background-color: #1da1f2;
-    color: #fff;
-  }
-  
-  .twitter-btn:hover {
-    background-color: #0d95e8;
-  }
-  
-  .facebook-btn {
-    background-color: #3b5998;
-    color: #fff;
-  }
-  
-  .facebook-btn:hover {
-    background-color: #334d84;
-  }
-  
+.auth-container {
+  max-width: 500px; /* Increase width */
+  margin: 100px auto;
+  padding: 3rem; /* Increase padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #f9f9f9; /* Light background color */
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 30px; /* Increase margin */
+  color: #333;
+  font-size: 2rem; /* Increase font size */
+}
+
+input, select {
+  width: 100%;
+  padding: 15px; /* Increase padding */
+  margin: 15px 0; /* Increase margin */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem; /* Increase font size */
+}
+
+button {
+  width: 100%;
+  padding: 15px; /* Increase padding */
+  background-color: #007BFF; /* Blue color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px; /* Increase margin */
+  font-size: 1rem; /* Increase font size */
+  transition: background-color 0.3s ease; /* Add transition */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+.google-login-btn {
+  background-color: #db4437;
+  margin-top: 10px;
+}
+
+.google-login-btn:hover {
+  background-color: #c33d2e;
+}
+
+p {
+  margin-top: 30px; /* Increase margin */
+  color: #007BFF; /* Blue color */
+  font-size: 1rem; /* Increase font size */
+}
+
+p a {
+  color: #0056b3; /* Darker blue */
+  text-decoration: none;
+  font-weight: bold; /* Make text bold */
+}
+
+p a:hover {
+  text-decoration: underline;
+}
