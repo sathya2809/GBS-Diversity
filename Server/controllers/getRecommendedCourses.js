@@ -28,18 +28,6 @@ export const getRecommendedCourses = async (req, res) => {
                 ]
             }
         },
-        {
-            $addFields: {
-                score: {
-                    $add: [
-                        { $cond: [{ $eq: ["$career_goal", user.career_goal] }, 20, 0] },
-                        { $size: { $setIntersection: ["$skills", user.skills || []] } },
-                        { $size: { $setIntersection: ["$interests", user.interests || []] } }
-                    ]
-                }
-            }
-        },
-        { $sort: { score: -1 } }
     ]);
     
 
