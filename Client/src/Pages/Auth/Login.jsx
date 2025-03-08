@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import '../../Styles/Auth.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
+        if (!email || !password) {
+            alert('Please fill in all fields!');
+            return;
+        }
         console.log('Login Data:', { email, password });
+        navigate('/');
     };
 
     return (
@@ -30,6 +37,8 @@ const Login = () => {
                 />
                 <button type="submit">Login</button>
             </form>
+            <p>or</p>
+            <p>Don't have an account? <Link to="/signup">Signup</Link></p>
         </div>
     );
 };
