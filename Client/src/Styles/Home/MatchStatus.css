@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
   width: 100%;
@@ -44,6 +43,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  gap: 1rem; /* Add gap between cards */
 }
 
 .card {
@@ -51,10 +51,11 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #fff;
-  width: 30%;
+  width: 32%; /* Increase width of the cards */
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem; /* Add margin between rows */
 }
 
 .card:hover {
@@ -85,4 +86,27 @@
 .btn:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+.more-text {
+  display: block;
+  margin: 1rem auto;
+  color: #007bff; /* Solid blue color */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.more-text:hover {
+  color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

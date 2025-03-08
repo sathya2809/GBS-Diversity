@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../../Styles/Home/MatchStatus.css'
 
 const MatchStatus = () => {
@@ -8,7 +9,7 @@ const MatchStatus = () => {
       <div className="cards-container">
         <div className="card">
           <div className="profile-info">
-            <img src="/path/to/profile-picture.jpg" alt="Profile" className="profile-picture" />
+            <img src="/user.png" alt="Profile" className="profile-picture" />
             <div className="profile-details">
               <h3>John Doe</h3>
               <p>Mentor</p>
@@ -24,7 +25,7 @@ const MatchStatus = () => {
         </div>
         <div className="card">
           <div className="profile-info">
-            <img src="/path/to/profile-picture.jpg" alt="Profile" className="profile-picture" />
+            <img src="/user.png" alt="Profile" className="profile-picture" />
             <div className="profile-details">
               <h3>Jane Smith</h3>
               <p>Mentor</p>
@@ -40,7 +41,7 @@ const MatchStatus = () => {
         </div>
         <div className="card">
           <div className="profile-info">
-            <img src="/path/to/profile-picture.jpg" alt="Profile" className="profile-picture" />
+            <img src="/user.png" alt="Profile" className="profile-picture" />
             <div className="profile-details">
               <h3>Michael Brown</h3>
               <p>Mentor</p>
@@ -55,6 +56,7 @@ const MatchStatus = () => {
           </div>
         </div>
       </div>
+      <Link to="/mentor" className="more-text">More</Link>
     </div>
   )
 }
