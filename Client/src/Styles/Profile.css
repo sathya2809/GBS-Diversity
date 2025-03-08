@@ -214,49 +214,6 @@ h1, h2, h3 {
   color: #666;
 }
 
-.resources-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 1rem;
-}
-
-.course-card {
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.progress-bar {
-  height: 6px;
-  background: #e9ecef;
-  border-radius: 3px;
-  margin-top: 0.5rem;
-}
-
-.progress {
-  height: 100%;
-  background: #764ba2;
-  border-radius: 3px;
-  transition: width 0.3s ease;
-}
-
-.start-course {
-  background: #764ba2;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.start-course:hover {
-  background: #5c3881;
-}
-
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

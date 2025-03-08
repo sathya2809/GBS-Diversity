@@ -21,17 +21,6 @@ const Profile = () => {
     careerGoals: 'Become a Senior Full Stack Developer in 2 years'
   });
 
-  const [careerData] = useState({
-    savedCourses: [
-      { id: 1, title: 'Advanced React Patterns', progress: 60 },
-      { id: 2, title: 'Leadership in Tech', progress: 30 }
-    ],
-    recommendedCourses: [
-      { id: 3, title: 'Cloud Architecture Fundamentals' },
-      { id: 4, title: 'Agile Project Management' }
-    ]
-  });
-
   const [metrics] = useState({
     sessionsCompleted: 12,
     resourcesAccessed: 25,
@@ -387,32 +376,6 @@ const Profile = () => {
             </div>
           </div>
         )}
-      </div>
-
-      <div className="profile-section">
-        <h2>Career Development Resources</h2>
-        <div className="resources-grid">
-          <div className="resources-column">
-            <h3>Saved Courses</h3>
-            {careerData.savedCourses.map(course => (
-              <div key={course.id} className="course-card">
-                <h4>{course.title}</h4>
-                <div className="progress-bar">
-                  <div className="progress" style={{width: `${course.progress}%`}}></div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="resources-column">
-            <h3>Recommended for You</h3>
-            {careerData.recommendedCourses.map(course => (
-              <div key={course.id} className="course-card recommended">
-                <h4>{course.title}</h4>
-                <button className="start-course">Start Course</button>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       <div className="profile-section metrics-section">
