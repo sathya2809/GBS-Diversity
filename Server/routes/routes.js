@@ -13,6 +13,7 @@ import { ProfileDataWithID, ProfileDataWithEmail } from "../controllers/ProfileD
 import Update from "../controllers/Update.js";
 import { MatchOneMentee,MatchOneMentor } from "../controllers/MatchForOne.js";
 import { getMatchedMentees,getMatchedMentors } from "../controllers/getMatchedMentors.js";
+import { connectMenteeWithMentor } from "../controllers/sendmail.js";
 
 router.post("/signIn", Register);
 router.post("/logIn",login);
@@ -26,6 +27,7 @@ router.post("/MatchOneMentee", MatchOneMentee);
 router.post("/MatchOneMentor", MatchOneMentor);
 router.post("/getMatchedMentees",getMatchedMentees);
 router.post("/getMatchedMentors", getMatchedMentors);
+router.post("/connect", connectMenteeWithMentor);
 
 
 

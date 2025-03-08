@@ -1,6 +1,7 @@
 // require('dotenv').config({path: './env'})
 import dotenv from "dotenv"
 import connectDB from "../db/dbconnect.js";
+import configureSendGrid from "../db/sgmail.js";
 import {app} from './app.js'
 dotenv.config({
     path: './.env'
@@ -16,3 +17,5 @@ connectDB()
     console.log("DB connection Failed");
     
 })
+configureSendGrid()
+
