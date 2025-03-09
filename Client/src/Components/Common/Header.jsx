@@ -20,10 +20,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
-      <Link to="/" className="text-gray-800 font-bold text-xl hover:text-orange-500 transition duration-300">
-  Ment<span className="text-orange-500 font-xlbold">Her</span>
-</Link>
-
+        <Link to="/" className="text-gray-800 font-bold text-xl hover:text-orange-500 transition duration-300">
+          <span className="text-gradient">MentHer</span>
+        </Link>
       </div>
       <nav className="nav">
         <Link to="/" className="nav-link">Home</Link>
@@ -46,7 +45,7 @@ const Header = () => {
         }
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

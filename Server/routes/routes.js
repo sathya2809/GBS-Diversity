@@ -37,8 +37,6 @@ router.post("/getCourse",getRecommendedCourses);
 
 
 
-
-
 //verify routes
 router.post("/verify-access-token", (req, res) => {
     const { token } = req.body;
