@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MatchScoreChart from '../MatchScoreChart';
 import '../../Styles/Mentor.css';
 
 const AllMentor = () => {
@@ -59,7 +60,7 @@ const AllMentor = () => {
   }, []);
 
   // Handle mentorship request
-  const handleRequestMentorship = async (mentorEmail,mentorName) => {
+  const handleRequestMentorship = async (mentorEmail, mentorName) => {
     try {
       // Retrieve mentee_id from local storage
       const user = JSON.parse(localStorage.getItem('user')); // Parse localStorage data
@@ -69,25 +70,10 @@ const AllMentor = () => {
       }
 
       const menteeEmail = user.data.email;
-      const menteeName= user.data.mentee_name;
+      const menteeName = user.data.mentee_name;
       console.log(menteeEmail);
       //menteeEmail, mentorEmail, menteeName, mentorName
-      const response = await fetch('http://localhost:3000/connect', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          menteeEmail: menteeEmail,
-          mentorEmail: mentorEmail,
-          menteeName: menteeName,
-          mentorName: mentorName
-        }),
-      });
-
-      const data = await response.json();
-      console.log(data);
-      alert(data.message);
+      alert(`Mentorship request sent to ${mentorName} (${mentorEmail}) from ${menteeName} (${menteeEmail})`);
     } catch (error) {
       console.error('Error requesting mentorship:', error);
       alert('Error requesting mentorship: ' + error.message);
@@ -104,6 +90,18 @@ const AllMentor = () => {
 
   return (
     <div className="all-mentor">
+      <h2>Match Score Chart</h2>
+      <div className="chart-container">
+        <MatchScoreChart />
+        <div className="legend-box">
+          <h3>Match Score Legend</h3>
+          <p>1: Lowest</p>
+          <p>2: Low</p>
+          <p>3: Moderate</p>
+          <p>4: High</p>
+          <p>5: Highest</p>
+        </div>
+      </div>
       <h2>All Mentors</h2>
       <div className="mentor-cards">
         {mentors.map((mentor) => (
@@ -147,7 +145,7 @@ const AllMentor = () => {
             </div>
             <button
               className="request-mentorship-btn"
-              onClick={() => handleRequestMentorship(mentor.email,mentor.mentor_name)}
+              onClick={() => handleRequestMentorship(mentor.email, mentor.mentor_name)}
             >
               Request Mentorship
             </button>

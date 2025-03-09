@@ -37,6 +37,7 @@
 
 .all-mentor {
   width: 100%;
+  padding: 20px;
 }
 
 .search-filter-section {
@@ -76,44 +77,82 @@
   outline: none;
 }
 
+.chart-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  overflow: auto;
+}
+
+.legend-box {
+  margin-right: 10px; /* Slightly move the legend box to the left */
+  padding: 20px;
+  border: 1px solid #007bff;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  height: 420px; /* Match the height of the chart */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent the legend box from shrinking */
+  min-width: 200px; /* Ensure the legend box has a minimum width */
+}
+
+.legend-box h3 {
+  margin-top: 0;
+  color: #007bff;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.legend-box p {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
 .mentor-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .mentor-card {
   background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  width: calc(33.333% - 20px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
 
 .mentor-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
 .mentor-photo {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: auto;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .request-mentorship-btn {
-  background: #007bff;
+  background-color: #007bff;
   color: white;
+  padding: 10px 15px;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .request-mentorship-btn:hover {
-  background: #0056b3;
+  background-color: #0056b3;
 }
 
 .resource-cards {
@@ -152,6 +191,7 @@
 
 .skills-container {
   margin: 0.5rem 0;
+  margin-bottom: 10px;
 }
 
 .skills-container p {
@@ -170,6 +210,7 @@
   padding: 0;
   font-size: 0.9rem;
   text-decoration: underline;
+  margin-left: 5px;
 }
 
 .more-skills-btn:hover {
@@ -178,6 +219,7 @@
 
 .interests-container {
   margin: 0.5rem 0;
+  margin-bottom: 10px;
 }
 
 .interests-container p {
@@ -196,6 +238,7 @@
   padding: 0;
   font-size: 0.9rem;
   text-decoration: underline;
+  margin-left: 5px;
 }
 
 .more-interests-btn:hover {
