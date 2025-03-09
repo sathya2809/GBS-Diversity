@@ -1,18 +1,18 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
-import Home from './Pages/Home'
-import Mentor from './Pages/Mentor'
-import About from './Pages/About'
-import Profile from './Pages/Profile'
-import Settings from './Pages/Settings'
-import Login from './Pages/Auth/Login'
-import Signup from './Pages/Auth/Signup'
-import Notifications from './Pages/Notifications'
-import Resource from './Pages/Resource'
-import Header from './Components/Common/Header'
-import Footer from './Components/Common/Footer'
-import { ThemeProvider } from './Context/ThemeToggle.jsx'
-import './App.css'
+import React from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import Home from './Pages/Home';
+import Mentor from './Pages/Mentor';
+import About from './Pages/About';
+import Profile from './Pages/Profile';
+import Settings from './Pages/Settings';
+import Login from './Pages/Auth/Login';
+import Signup from './Pages/Auth/Signup';
+import Notifications from './Pages/Notifications';
+import Resource from './Pages/Resource';
+import Header from './Components/Common/Header';
+import Footer from './Components/Common/Footer';
+import { ThemeProvider } from './Context/ThemeToggle.jsx';
+import './App.css';
 
 const AppContent = () => {
   const location = useLocation();
@@ -43,12 +43,10 @@ const App = () => {
   return (
     <ThemeProvider>
       <div className="app">
-        <Router>
-          <AppContent />
-        </Router>
+        <AppContent />
       </div>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 export default App;

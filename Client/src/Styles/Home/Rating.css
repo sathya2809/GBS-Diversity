@@ -1,10 +1,12 @@
 .rating-section {
-  width: 100%;
-  padding: 1rem;
-  background: white; /* Change background to white */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  animation: slideRight 1.5s ease-in-out;
 }
 
 .rating-section h2 {
