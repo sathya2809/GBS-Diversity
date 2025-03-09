@@ -35,7 +35,7 @@ const Register = async (req, res) => {
         });
         if (role === 1) {
             await Mentor.create({
-                user_id: newUser.user_id, // Use the auto-incremented userId
+                user_id: newUser.user_id, 
                 description,
                 email,
                 mentor_name: name,
@@ -48,7 +48,7 @@ const Register = async (req, res) => {
         }
         else {
             await Mentee.create({
-                user_id: newUser.user_id, // Use the auto-incremented userId
+                user_id: newUser.user_id, 
                 description,
                 email,
                 mentee_name: name,

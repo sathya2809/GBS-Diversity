@@ -1,5 +1,5 @@
 .auth-container {
-  max-width: 500px; /* Increase width */
+  max-width: 700px; /* Increase width */
   margin: 100px auto;
   padding: 3rem; /* Increase padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -14,13 +14,18 @@ h2 {
   font-size: 2rem; /* Increase font size */
 }
 
-input, select {
+input, select, textarea {
   width: 100%;
   padding: 15px; /* Increase padding */
   margin: 15px 0; /* Increase margin */
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem; /* Increase font size */
+}
+
+textarea.description {
+  height: 100px; /* Set a fixed height for the description textarea */
+  resize: vertical; /* Allow vertical resizing */
 }
 
 button {

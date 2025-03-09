@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import '../../Styles/Auth.css';
 
 const Signup = () => {
@@ -7,8 +8,13 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [role, setRole] = useState('mentee'); // Add role state
+  const [role, setRole] = useState('mentee');
+  const [skills, setSkills] = useState('');
+  const [careerGoals, setCareerGoals] = useState('');
+  const [interests, setInterests] = useState('');
+  const [description, setDescription] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -16,12 +22,12 @@ const Signup = () => {
       alert('Passwords do not match!');
       return;
     }
-    if (!username || !email || !password || !confirmPassword) {
+    if (!username || !email || !password || !confirmPassword || !skills || !careerGoals || !interests || !description) {
       alert('Please fill in all fields!');
       return;
     }
-    console.log('Signup Data:', { username, email, password, role });
-    navigate('/');
+    const signupData = { username, email, password, role, skills, careerGoals, interests, description };
+    // dispatch(signup(signupData, navigate)); // Remove this line if not implementing server-side
   };
 
   return (
@@ -60,6 +66,34 @@ const Signup = () => {
           <option value="mentee">Mentee</option>
           <option value="mentor">Mentor</option>
         </select>
+        <input
+          type="text"
+          placeholder="Enter your skills"
+          value={skills}
+          onChange={(e) => setSkills(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter your career goals"
+          value={careerGoals}
+          onChange={(e) => setCareerGoals(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter your interests"
+          value={interests}
+          onChange={(e) => setInterests(e.target.value)}
+          required
+        />
+        <textarea
+          className="description"
+          placeholder="Enter a description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
         <button type="submit">Signup</button>
       </form>
       <p>or</p>
