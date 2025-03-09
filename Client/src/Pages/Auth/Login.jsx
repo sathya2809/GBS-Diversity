@@ -15,30 +15,28 @@ const Login = () => {
     dispatch(login(email,password,navigate))
   };
 
-    return (
-        <div className="auth-container">
-            <h2>Login</h2> {/* Add title for the login page */}
-            <form onSubmit={handleLogin}>
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Login</button>
-            </form>
-            <p>or</p>
-            <p>Don't have an account? <Link to="/signup">Signup</Link></p>
-        </div>
-    );
+  return (
+    <div className="auth-container">
+       
+        <form onSubmit={handleLogin}>
+            <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+            />
+            <input
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+            />
+            <button type="submit">Login</button>
+        </form>
+    </div>
+);
 };
 
-export default Login;
+export default Login;

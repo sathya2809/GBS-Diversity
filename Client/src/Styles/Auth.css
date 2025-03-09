@@ -1,5 +1,5 @@
 .auth-container {
-  max-width: 500px; /* Increase width */
+  max-width: 700px; /* Increase width */
   margin: 100px auto;
   padding: 3rem; /* Increase padding */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -14,7 +14,7 @@ h2 {
   font-size: 2rem; /* Increase font size */
 }
 
-input, select {
+input, select, textarea {
   width: 100%;
   padding: 15px; /* Increase padding */
   margin: 15px 0; /* Increase margin */
@@ -23,45 +23,26 @@ input, select {
   font-size: 1rem; /* Increase font size */
 }
 
+textarea.description {
+  height: 100px; /* Set a fixed height for the description textarea */
+  resize: vertical; /* Allow vertical resizing */
+}
+
 button {
   width: 100%;
-  padding: 15px; /* Increase padding */
-  background-color: #007BFF; /* Blue color */
-  color: #fff;
+  padding: 12px;
+  background: linear-gradient(90deg, #b811cb, #2575fc);
   border: none;
   border-radius: 8px;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 15px; /* Increase margin */
-  font-size: 1rem; /* Increase font size */
-  transition: background-color 0.3s ease; /* Add transition */
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker blue */
+  background: linear-gradient(90deg, #8e5686, #e64199);
 }
-
-.google-login-btn {
-  background-color: #db4437;
-  margin-top: 10px;
-}
-
-.google-login-btn:hover {
-  background-color: #c33d2e;
-}
-
-p {
-  margin-top: 30px; /* Increase margin */
-  color: #007BFF; /* Blue color */
-  font-size: 1rem; /* Increase font size */
-}
-
-p a {
-  color: #0056b3; /* Darker blue */
-  text-decoration: none;
-  font-weight: bold; /* Make text bold */
-}
-
-p a:hover {
-  text-decoration: underline;
+.section-title{
+  color: black
 }
