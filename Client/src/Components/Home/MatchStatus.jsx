@@ -36,7 +36,7 @@ const MatchStatus = () => {
           </div>
           <div className="common-skills">
             <h4>Common Skills & Interests</h4>
-            <p>Python, Django, Data Science, Traveling, Cooking</p>
+            <p>Python, Django, Data Science, Traveling</p>
           </div>
         </div>
         <div className="card">
