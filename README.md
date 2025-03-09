@@ -77,12 +77,12 @@ This platform empowers women in the tech industry by providing personalized ment
 ### Installation
 1. Clone the repository
    
-   git clone https://github.com/yourusername/women-tech-mentorship.git
+   git clone https://github.com/sathya2809/GBS-Diversity.git
    
 
 2. Install dependencies
    
-   cd women-tech-mentorship
+   cd client
    npm install
    
 
@@ -96,7 +96,6 @@ This platform empowers women in the tech industry by providing personalized ment
    npm run dev
    
 
-5. Access the application at http://localhost:3000
 
 ## Usage
 
