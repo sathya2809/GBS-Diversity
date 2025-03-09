@@ -19,10 +19,22 @@
   background-color: #f0f0f0; /* Light grey on hover */
 }
 
-.header-left,
-.header-right {
+.header-left {
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  height: 65px;
+  width: auto;
+  position: absolute;
+  left: 0;
+  opacity: 0.6;
+  z-index: 1;
+  width: 200px;
+  height: 80px;
+  /* Remove top property as it's not needed */
 }
 
 .nav {
@@ -83,5 +95,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem; 
-  font-weight:700;
+  font-weight: 700;
+  margin-left: 25px;
+  margin-top: 60px; /* Add margin-top to move text below the logo */
+  position: relative;
+  z-index: 2;
 }

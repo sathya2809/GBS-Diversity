@@ -8,10 +8,13 @@ const Sidebar = ({ setSelectedComponent }) => {
         All Mentors
       </button>
       <button onClick={() => setSelectedComponent('matching')}>
-        Matching Suggestions
+        Matching
       </button>
       <button onClick={() => setSelectedComponent('learning')}>
-        Learning Resources
+        Learning
+      </button>
+      <button onClick={() => setSelectedComponent('sent')}>
+        Sent Requests
       </button>
     </div>
   );

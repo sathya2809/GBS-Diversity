@@ -16,7 +16,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
+        <img src="/logo.jpeg" alt="MentHer Logo" className="header-logo" />
         <Link to="/" className="text-gray-800 font-bold text-xl hover:text-orange-500 transition duration-300">
+          <break></break>
           <span className="text-gradient">MentHer</span>
         </Link>
       </div>
