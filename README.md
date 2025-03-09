@@ -7,7 +7,6 @@ This platform empowers women in the tech industry by providing personalized ment
 
 ### User Experience
 - *Responsive Design*: Accessible on desktop and mobile devices
-- *Light/Dark Mode*: Toggle between themes for optimal viewing
 - *Intuitive Navigation*: Easy access to all platform features
 
 ### Core Functionality
