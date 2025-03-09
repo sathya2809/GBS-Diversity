@@ -107,10 +107,12 @@ const AllMentor = () => {
   if (error) {
     return <p>Error: {error}</p>;
   }
-
+   
   return (
     <div className="all-mentor">
+      <img src="/Score.jpeg" alt="Mentor Legend" className="mentor-legend" />
       <h2>All Mentors</h2>
+
       <div className="mentor-cards">
         {mentors.map((mentor) => (
           <div key={mentor._id} className="mentor-card">
