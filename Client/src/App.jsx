@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './Pages/Home';
 import Mentor from './Pages/Mentor';
+import Mentee from './Pages/Mentee';
 import About from './Pages/About';
 import Profile from './Pages/Profile';
 import Settings from './Pages/Settings';
@@ -25,6 +26,7 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mentor" element={<Mentor />} />
+          <Route path="/mentee" element={<Mentee />} />
           <Route path="/resource" element={<Resource />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
