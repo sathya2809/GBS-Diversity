@@ -72,17 +72,17 @@
 }
 
 .login-btn {
-  background-color: #007bff; /* Blue background */
+  background-color: #716ACC; /* Blue background */
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 5px;
   margin-right: 0.5rem;
 }
 
 .signup-btn {
-  background-color: #0056b3; /* Darker blue background */
+  background-color: #716ACC; /* Darker blue background */
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 5px;
 }
 
