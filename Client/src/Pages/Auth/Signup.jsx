@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import '../../Styles/Auth.css';
+import { signup } from '../../operations/services/authApi';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -27,7 +28,7 @@ const Signup = () => {
       return;
     }
     const signupData = { username, email, password, role, skills, careerGoals, interests, description };
-    // dispatch(signup(signupData, navigate)); // Remove this line if not implementing server-side
+    dispatch(signup(signupData, navigate)); // Remove this line if not implementing server-side
   };
 
   return (
