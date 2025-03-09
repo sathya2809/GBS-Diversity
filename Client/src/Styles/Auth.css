@@ -1,67 +1,60 @@
 .auth-container {
-  max-width: 500px; /* Increase width */
-  margin: 100px auto;
-  padding: 3rem; /* Increase padding */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: #f9f9f9; /* Light background color */
-  text-align: center;
-}
-
-h2 {
-  margin-bottom: 30px; /* Increase margin */
-  color: #333;
-  font-size: 2rem; /* Increase font size */
-}
-
-input, select {
+  display: flex;
+  height: 100vh;
   width: 100%;
-  padding: 15px; /* Increase padding */
-  margin: 15px 0; /* Increase margin */
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem; /* Increase font size */
+  background: linear-gradient(135deg, #bd75bb, #f17eae);
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+form {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #6a11cb;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #2575fc;
 }
 
 button {
   width: 100%;
-  padding: 15px; /* Increase padding */
-  background-color: #007BFF; /* Blue color */
-  color: #fff;
+  padding: 12px;
+  background: linear-gradient(90deg, #b811cb, #2575fc);
   border: none;
   border-radius: 8px;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 15px; /* Increase margin */
-  font-size: 1rem; /* Increase font size */
-  transition: background-color 0.3s ease; /* Add transition */
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker blue */
+  background: linear-gradient(90deg, #8e5686, #e64199);
 }
-
-.google-login-btn {
-  background-color: #db4437;
-  margin-top: 10px;
-}
-
-.google-login-btn:hover {
-  background-color: #c33d2e;
-}
-
-p {
-  margin-top: 30px; /* Increase margin */
-  color: #007BFF; /* Blue color */
-  font-size: 1rem; /* Increase font size */
-}
-
-p a {
-  color: #0056b3; /* Darker blue */
-  text-decoration: none;
-  font-weight: bold; /* Make text bold */
-}
-
-p a:hover {
-  text-decoration: underline;
+.section-title{
+  color: black
 }

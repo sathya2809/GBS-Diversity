@@ -1,125 +1,98 @@
-import React, { useState } from 'react';
-import { FaSearch, FaFilter } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
 import '../../Styles/Mentor.css';
 
 const AllMentor = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSkill, setSelectedSkill] = useState('all');
+  const [mentors, setMentors] = useState([]);
+  const [loading, setLoading] = useState(true); // For loading state
+  const [error, setError] = useState(null); // For error handling
+  const getRandomExperience = () => Math.floor(Math.random() * 5) + 1;
+  // Fetch mentors from the API
+  const fetchMentors = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/getAllMentors', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-  // Sample data for mentors
-  const mentors = [
-    {
-      id: 1,
-      name: 'John Doe',
-      photo: '/user.png',
-      skills: ['JavaScript', 'React', 'Node.js'],
-      experience: '5 years',
-      interests: ['Hiking', 'Reading']
-    },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      photo: '/user.png',
-      skills: ['Python', 'Django', 'Data Science'],
-      experience: '7 years',
-      interests: ['Traveling', 'Cooking']
-    },
-    {
-      id: 3,
-      name: 'Michael Brown',
-      photo: '/user.png',
-      skills: ['Java', 'Spring', 'Microservices'],
-      experience: '8 years',
-      interests: ['Gaming', 'Music']
-    },
-    {
-      id: 4,
-      name: 'Emily White',
-      photo: '/user.png',
-      skills: ['C++', 'Algorithms', 'Data Structures'],
-      experience: '6 years',
-      interests: ['Running', 'Photography']
-    },
-    {
-      id: 5,
-      name: 'Sarah Green',
-      photo: '/user.png',
-      skills: ['Ruby', 'Rails', 'PostgreSQL'],
-      experience: '4 years',
-      interests: ['Cooking', 'Traveling']
-    },
-    {
-      id: 6,
-      name: 'David Black',
-      photo: '/user.png',
-      skills: ['PHP', 'Laravel', 'MySQL'],
-      experience: '5 years',
-      interests: ['Gaming', 'Reading']
+      const data = await response.json();
+      console.log(data);
+      if (data.success) {
+        setMentors(data.data); // Assuming `mentors` is inside `data.data`
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      setError(error.message || 'Error fetching mentors');
+    } finally {
+      setLoading(false); // Stop loading once the fetch is complete
     }
-  ];
-
-  const filteredMentors = mentors.filter(mentor => {
-    const matchesSearch = mentor.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesSkill = selectedSkill === 'all' || mentor.skills.includes(selectedSkill);
-    return matchesSearch && matchesSkill;
-  });
-
-  const handleRequestMentorship = (mentorId) => {
-    alert(`Mentorship request sent to mentor with ID: ${mentorId}`);
   };
+
+  // Fetch mentors on component mount
+  useEffect(() => {
+    fetchMentors();
+  }, []);
+
+  // Handle mentorship request
+  const handleRequestMentorship = async (mentorEmail,mentorName) => {
+    try {
+      // Retrieve mentee_id from local storage
+      const user = JSON.parse(localStorage.getItem('user')); // Parse localStorage data
+      if (!user || !user.data?.user_id) {
+        alert('User not logged in. Please log in to request mentorship.');
+        return;
+      }
+
+      const menteeEmail = user.data.email;
+      const menteeName= user.data.mentee_name;
+      console.log(menteeEmail);
+      //menteeEmail, mentorEmail, menteeName, mentorName
+      const response = await fetch('http://localhost:3000/connect', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          menteeEmail: menteeEmail,
+          mentorEmail: mentorEmail,
+          menteeName: menteeName,
+          mentorName: mentorName
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      alert(data.message);
+    } catch (error) {
+      console.error('Error requesting mentorship:', error);
+      alert('Error requesting mentorship: ' + error.message);
+    }
+  };
+
+  if (loading) {
+    return <p>Loading mentors...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div className="all-mentor">
       <h2>All Mentors</h2>
-      <div className="search-filter-section">
-        <div className="search-bar">
-          <FaSearch className="search-icon" />
-          <input
-            type="text"
-            placeholder="Search mentors..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-        <div className="filter-section">
-          <FaFilter className="filter-icon" />
-          <select
-            value={selectedSkill}
-            onChange={(e) => setSelectedSkill(e.target.value)}
-          >
-            <option value="all">All Skills</option>
-            <option value="JavaScript">JavaScript</option>
-            <option value="React">React</option>
-            <option value="Node.js">Node.js</option>
-            <option value="Python">Python</option>
-            <option value="Django">Django</option>
-            <option value="Data Science">Data Science</option>
-            <option value="Java">Java</option>
-            <option value="Spring">Spring</option>
-            <option value="Microservices">Microservices</option>
-            <option value="C++">C++</option>
-            <option value="Algorithms">Algorithms</option>
-            <option value="Data Structures">Data Structures</option>
-            <option value="Ruby">Ruby</option>
-            <option value="Rails">Rails</option>
-            <option value="PostgreSQL">PostgreSQL</option>
-            <option value="PHP">PHP</option>
-            <option value="Laravel">Laravel</option>
-            <option value="MySQL">MySQL</option>
-          </select>
-        </div>
-      </div>
       <div className="mentor-cards">
-        {filteredMentors.map(mentor => (
-          <div key={mentor.id} className="mentor-card">
-            <img src={mentor.photo} alt={mentor.name} className="mentor-photo" />
-            <h3>{mentor.name}</h3>
+        {mentors.map((mentor) => (
+          <div key={mentor._id} className="mentor-card">
+            <img src="/user.png" alt={mentor.name} className="mentor-photo" />
+            <h3>{mentor.mentor_name}</h3>
             <p>Skills: {mentor.skills.join(', ')}</p>
-            <p>Experience: {mentor.experience}</p>
+            <p>Experience: {getRandomExperience()} years</p>
             <p>Interests: {mentor.interests.join(', ')}</p>
             <button
               className="request-mentorship-btn"
-              onClick={() => handleRequestMentorship(mentor.id)}
+              onClick={() => handleRequestMentorship(mentor.email,mentor.mentor_name)}
             >
               Request Mentorship
             </button>
