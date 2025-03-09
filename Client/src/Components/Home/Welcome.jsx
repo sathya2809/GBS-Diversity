@@ -6,7 +6,7 @@ const Welcome = () => {
   return (
     <div className="welcome-section">
       <div className="welcome-content">
-        <h1 className="welcome-title" style={{ color: 'white' }}>Welcome to WebsiteName</h1>
+        <h1 className="welcome-title" style={{ color: 'white' }}>Welcome to MentHer</h1>
         <p className="welcome-text" style={{ color: 'white' }}>Your career mentorship platform</p>
         <p className="welcome-text" style={{ color: 'white' }}>Your dashboard provides a quick snapshot of your mentorship journey.</p>
         <p className="welcome-text" style={{ color: 'white' }}>Connect with experienced mentors, access valuable resources, and track your progress.</p>
