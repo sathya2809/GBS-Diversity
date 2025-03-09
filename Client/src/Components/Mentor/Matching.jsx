@@ -130,7 +130,7 @@ const Matching = () => {
           <div key={mentor.mentor_id} className="mentor-card">
             <img src="/user.png" alt={mentor.mentor_name} className="mentor-photo" />
             <h3>{mentor.profile.data.mentor_name}</h3>
-            <p>Match Score: {mentor.match_score}%</p>
+            <p>Match Score: {Math.round(mentor.match_score * 4 + 1)}</p>
 
             {/* Displaying profile details */}
             {mentor.profile && mentor.profile.data && (

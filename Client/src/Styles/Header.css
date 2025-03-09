@@ -32,7 +32,7 @@
   left: 0;
   opacity: 0.6;
   z-index: 1;
-  width: 200px;
+  width: 100px;
   height: 80px;
   /* Remove top property as it's not needed */
 }
@@ -91,12 +91,12 @@
 }
 
 .text-gradient {
-  background: linear-gradient(45deg, #FF69B4, #1E90FF);
+  background: #595592;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem; 
   font-weight: 700;
-  margin-left: 25px;
+  margin-left: 100px;
   margin-top: 60px; /* Add margin-top to move text below the logo */
   position: relative;
   z-index: 2;
