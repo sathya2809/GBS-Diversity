@@ -24,6 +24,11 @@ const AllMentor = () => {
     }));
   };
 
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
   // Fetch mentors from the API
   const fetchMentors = async () => {
     try {
@@ -128,9 +133,9 @@ const AllMentor = () => {
                 Interests: {
                   expandedInterests[mentor._id] 
                     ? mentor.interests.join(', ')
-                    : mentor.interests.slice(0, 2).join(', ') + (mentor.interests.length > 2 ? '' : '')
+                    : truncateText(mentor.interests.join(', '), 23)
                 }
-                {mentor.interests.length > 2 && (
+                {mentor.interests.join(', ').length > 23 && (
                   <button 
                     className="more-interests-btn"
                     onClick={() => toggleInterests(mentor._id)}
