@@ -92,7 +92,7 @@ const AllMentor = () => {
       alert(data.message);
       setRequestSentStatus((prevStatus) => ({
         ...prevStatus,
-        [mentor.mentor_id]: true, // Disable the button for the specific mentor
+        [mentor.mentor_id]: true, 
       }));
     } catch (error) {
       console.error('Error requesting mentorship:', error);
@@ -110,18 +110,6 @@ const AllMentor = () => {
 
   return (
     <div className="all-mentor">
-      <h2>Match Score Chart</h2>
-      <div className="chart-container">
-        <MatchScoreChart />
-        <div className="legend-box">
-          <h3>Match Score Legend</h3>
-          <p>1: Lowest</p>
-          <p>2: Low</p>
-          <p>3: Moderate</p>
-          <p>4: High</p>
-          <p>5: Highest</p>
-        </div>
-      </div>
       <h2>All Mentors</h2>
       <div className="mentor-cards">
         {mentors.map((mentor) => (
