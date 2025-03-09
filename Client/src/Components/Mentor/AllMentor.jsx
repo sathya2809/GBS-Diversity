@@ -110,7 +110,7 @@ const AllMentor = () => {
    
   return (
     <div className="all-mentor">
-      <img src="/Score.jpeg" alt="Mentor Legend" className="mentor-legend" />
+      
       <h2>All Mentors</h2>
 
       <div className="mentor-cards">

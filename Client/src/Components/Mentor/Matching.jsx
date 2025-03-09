@@ -125,6 +125,7 @@ const Matching = () => {
    return (
     <div className="matching-suggestions">
       <h2>Matching Suggestions</h2>
+      <h4 id="sc">Match Score: 5(Highest) to 1(lowest)</h4>
       <div className="mentor-cards">
         {mentors.map((mentor) => (
           <div key={mentor.mentor_id} className="mentor-card">
