@@ -1,11 +1,12 @@
 .upcoming-sessions {
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(135deg, #f9f9f9, #e0e0e0); /* Gradient background */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 2s ease-in-out;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 2rem;
+  background:  #ececec;
+  animation: slideLeft 1.5s ease-in-out;
 }
 
 .upcoming-sessions h2 {
@@ -17,8 +18,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 100%; /* Ensure container takes full width */
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  width: 100%;
+  box-sizing: border-box;
+  gap: 20px;
 }
 
 .session-card {
@@ -29,9 +31,9 @@
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Gradient background */
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
   margin-bottom: 1rem;
-  width: 28%; /* Reduce width to ensure equal width for all components */
+  width: 28%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -52,7 +54,7 @@
 
 .btn {
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
+  background: linear-gradient(135deg, #007bff, #0056b3);
   color: white;
   border: none;
   border-radius: 5px;
@@ -61,7 +63,7 @@
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, #0056b3, #003f7f); /* Gradient background on hover */
+  background: linear-gradient(135deg, #0056b3, #003f7f);
   transform: scale(1.05);
 }
 

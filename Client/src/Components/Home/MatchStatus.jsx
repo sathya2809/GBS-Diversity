@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import '../../Styles/Home/MatchStatus.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../../Styles/Home/MatchStatus.css';
 
 const MatchStatus = () => {
   return (
-    <div className="match-status full-width">
+    <div className="match-status full-width" style={{ backgroundColor: 'white' }}>
       <h2>Recent Matches</h2>
-      <div className="cards-container">
+      <div className="cards-container" style={{ display: 'flex', flexDirection: 'row' }}>
         <div className="card">
           <div className="profile-info">
             <img src="/user.png" alt="Profile" className="profile-picture" />
@@ -58,7 +58,7 @@ const MatchStatus = () => {
       </div>
       <Link to="/mentor" className="more-text">More</Link>
     </div>
-  )
-}
+  );
+};
 
-export default MatchStatus
+export default MatchStatus;
