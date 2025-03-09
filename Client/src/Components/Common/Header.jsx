@@ -28,18 +28,24 @@ const Header = () => {
       </div>
       <nav className="nav">
         <Link to="/" className="nav-link">Home</Link>
-        {user_role !== 'Mentor' &&
+        {user!==null && user_role !== 'Mentor' &&
         <Link to="/mentor" className="nav-link">Mentor</Link>
         }
-        {user_role!== 'Mentee' && 
+        {user!== null && user_role!== 'Mentee' && 
         <Link to="/mentee" className="nav-link">Mentee</Link>}
         {/* <Link to="/resource" className="nav-link">Resource</Link> */}
         <Link to="/about" className="nav-link">About</Link>
+        { user!==null && 
         <Link to="/profile" className="nav-link">Profile</Link>
+        }
       </nav>
       <div className="header-right">
+        {user !== null && 
+        <div>
         <Link to="/notifications" className="nav-link"><FaBell /></Link>
         <Link to="/settings" className="nav-link"><FaCog /></Link>
+        </div>
+        }
         {user ==null && <div>
         <Link to="/login" className="nav-link login-btn">Login</Link>
         <Link to="/signup" className="nav-link signup-btn">Signup</Link>
