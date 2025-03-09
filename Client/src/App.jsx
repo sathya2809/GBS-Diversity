@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { Route, Routes, useLocation, BrowserRouter as Router } from 'react-router-dom';
+import { store } from './Redux/store';
 import Home from './Pages/Home';
 import Mentor from './Pages/Mentor';
 import About from './Pages/About';
@@ -41,11 +43,15 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <div className="app">
-        <AppContent />
-      </div>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <Router>
+          <div className="app">
+            <AppContent />
+          </div>
+        </Router>
+      </ThemeProvider>
+    </Provider>
   );
 };
 
