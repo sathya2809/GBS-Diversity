@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Route, Routes, useLocation, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { store } from './Redux/store';
 import Home from './Pages/Home';
 import Mentor from './Pages/Mentor';
@@ -16,12 +16,12 @@ import Footer from './Components/Common/Footer';
 import { ThemeProvider } from './Context/ThemeToggle.jsx';
 import './App.css';
 
-const AppContent = () => {
+const AppLayout = () => {
   const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
-    <>
+    <div className="app">
       {!isAuthPage && <Header />}
       <div className="content">
         <Routes>
@@ -37,7 +37,7 @@ const AppContent = () => {
         </Routes>
       </div>
       {!isAuthPage && <Footer />}
-    </>
+    </div>
   );
 };
 
@@ -45,11 +45,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider>
-        <Router>
-          <div className="app">
-            <AppContent />
-          </div>
-        </Router>
+        <AppLayout />
       </ThemeProvider>
     </Provider>
   );

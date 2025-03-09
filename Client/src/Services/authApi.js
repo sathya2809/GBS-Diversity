@@ -3,19 +3,21 @@ import apiClient from './apiConfig';
 export const authApi = {
   login: async (credentials) => {
     try {
-      const response = await apiClient.post('/auth/login', credentials);
+      const response = await apiClient.post('/login', credentials);
       return response.data;
     } catch (error) {
-      throw error.response?.data || error.message;
+      console.error('Login error:', error);
+      throw error.response?.data || { message: 'Login failed' };
     }
   },
   
   register: async (userData) => {
     try {
-      const response = await apiClient.post('/auth/register', userData);
+      const response = await apiClient.post('/register', userData);
       return response.data;
     } catch (error) {
-      throw error.response?.data || error.message;
+      console.error('Registration error:', error);
+      throw error.response?.data || { message: 'Registration failed' };
     }
   }
 };
