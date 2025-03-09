@@ -43,3 +43,51 @@ export function login(email, password, navigate) {
     }
   };
 }
+
+export function logout()
+{
+  localStorage.removeItem('user');
+  window.location.reload();
+}
+
+export function signup(signupData, navigate)
+{
+  return async (dispatch) => {
+    const{ email,password,role,skills,careerGoals,interests,description,username}= signupData;
+    const toast_id = toast.loading("Loading...");
+    console.log("hello");
+    console.log(signupData);
+    const userrole= role=="Mentor"?1:0;
+    try {
+      const response = await apiConnector("POST", SIGNUP_API, {
+        description,
+        name: username,
+        role: userrole,
+        skills,
+        career_goal: careerGoals,
+        interests,
+        email,
+        password
+       ,
+      });
+      console.log("hello2");
+
+       console.log("response from the signup api server ", response);
+
+      // Notify user of successful login
+      toast.success("Login Successful!");
+      const userDetails = await apiConnector("POST", USER_PROFILE,{email});
+      console.log(userDetails);
+      // Optionally, store user data in localStorage for session persistence
+      localStorage.setItem("user", JSON.stringify(userDetails.data));
+      localStorage.setItem("role", userDetails.data.role);
+
+      // Redirect to the home page
+      navigate("/");} catch (error) {
+        toast.error(error.response?.data?.message || "Login failed");
+        console.error(error);
+      } finally {
+        toast.dismiss(toast_id);
+      }
+    };
+  }

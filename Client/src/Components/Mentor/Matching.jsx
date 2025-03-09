@@ -5,6 +5,7 @@ const Matching = () => {
   const [mentors, setMentors] = useState([]); // State to store matched mentors
   const [loading, setLoading] = useState(true); // State to handle loading
   const [error, setError] = useState(null); // State to handle errors
+  const [requestSentStatus, setRequestSentStatus] = useState({});
 
   const fetchProfileDetails = async (mentorId) => {
     try {
@@ -55,6 +56,7 @@ const Matching = () => {
         }));
         console.log(mentorsWithProfiles);
         setMentors(mentorsWithProfiles); 
+
       } else {
         throw new Error(data.message || 'Failed to fetch matched mentors');
       }
@@ -70,9 +72,47 @@ const Matching = () => {
     fetchMatchedMentors();
   }, []);
 
-  const handleRequestMentorship = (mentorId) => {
-    alert(`Mentorship request sent to mentor with ID: ${mentorId}`);
+  const handleRequestMentorship = async (mentorEmail,mentorName,mentor) => {
+    try {
+      // Retrieve mentee_id from local storage
+      const user = JSON.parse(localStorage.getItem('user')); // Parse localStorage data
+      if (!user || !user.data?.user_id) {
+        alert('User not logged in. Please log in to request mentorship.');
+        return;
+      }
+
+      const menteeEmail = user.data.email;
+      const menteeName= user.data.mentee_name;
+      console.log(menteeEmail);
+      console.log(menteeName);
+      console.log( mentorEmail);
+      console.log(mentorName);
+      const response = await fetch('http://localhost:3000/connect', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          menteeEmail: menteeEmail,
+          mentorEmail: mentorEmail,
+          menteeName: menteeName,
+          mentorName: mentorName
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      alert(data.message);
+      setRequestSentStatus((prevStatus) => ({
+        ...prevStatus,
+        [mentor.profile.data.mentor_id]: true, // Disable the button for the specific mentor
+      }));
+    } catch (error) {
+      console.error('Error requesting mentorship:', error);
+      alert('Error requesting mentorship: ' + error.message);
+    }
   };
+
 
   if (loading) {
     return <p>Loading matched mentors...</p>;
@@ -82,29 +122,31 @@ const Matching = () => {
     return <p>Error: {error}</p>;
   }
 
-  return (
+   return (
     <div className="matching-suggestions">
       <h2>Matching Suggestions</h2>
       <div className="mentor-cards">
         {mentors.map((mentor) => (
           <div key={mentor.mentor_id} className="mentor-card">
             <img src="/user.png" alt={mentor.mentor_name} className="mentor-photo" />
-            <h3>{mentor.mentor_name}</h3>
+            <h3>{mentor.profile.data.mentor_name}</h3>
             <p>Match Score: {mentor.match_score}%</p>
 
             {/* Displaying profile details */}
             {mentor.profile && mentor.profile.data && (
               <div className="mentor-profile">
-                <h4>Career Goal: {mentor.profile.data.career_goal}</h4>
+                <h4 id="tag">Career Goal: {mentor.profile.data.career_goal}</h4>
                 <p><strong>Description:</strong> {mentor.profile.data.description}</p>
                 <p><strong>Email:</strong> {mentor.profile.data.email}</p>
                 
                 <div>
                   <strong>Interests:</strong>
                   <ul>
-                    {mentor.profile.data.interests.map((interest, index) => (
+                    {mentor.profile.data.interests.map((interest, index) =>{
+                      console.log(interest);
+                      return (
                       <li key={index}>{interest}</li>
-                    ))}
+                    )} )}
                   </ul>
                 </div>
 
@@ -119,12 +161,13 @@ const Matching = () => {
               </div>
             )}
 
-            <button
+<button
               className="request-mentorship-btn"
-              onClick={() => handleRequestMentorship(mentor.mentor_id)}
-            >
-              Request Mentorship
-            </button>
+              onClick={() => handleRequestMentorship(mentor.profile.data.email,mentor.profile.data.mentor_name,mentor)}
+              disabled={requestSentStatus[mentor.mentor_id]} // Disable only the button for the specific mentor
+              >
+              {requestSentStatus[mentor.mentor_id] ? 'Request Mentorship' : 'Request Mentorship'} {/* Display message */}
+              </button>
           </div>
         ))}
       </div>

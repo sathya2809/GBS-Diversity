@@ -5,6 +5,7 @@ const AllMentor = () => {
   const [mentors, setMentors] = useState([]);
   const [loading, setLoading] = useState(true); // For loading state
   const [error, setError] = useState(null); // For error handling
+  const [requestSentStatus, setRequestSentStatus] = useState({});
   const getRandomExperience = () => Math.floor(Math.random() * 5) + 1;
   // Fetch mentors from the API
   const fetchMentors = async () => {
@@ -36,7 +37,7 @@ const AllMentor = () => {
   }, []);
 
   // Handle mentorship request
-  const handleRequestMentorship = async (mentorEmail,mentorName) => {
+  const handleRequestMentorship = async (mentorEmail,mentorName,mentor) => {
     try {
       // Retrieve mentee_id from local storage
       const user = JSON.parse(localStorage.getItem('user')); // Parse localStorage data
@@ -65,6 +66,10 @@ const AllMentor = () => {
       const data = await response.json();
       console.log(data);
       alert(data.message);
+      setRequestSentStatus((prevStatus) => ({
+        ...prevStatus,
+        [mentor.mentor_id]: true, // Disable the button for the specific mentor
+      }));
     } catch (error) {
       console.error('Error requesting mentorship:', error);
       alert('Error requesting mentorship: ' + error.message);
@@ -92,10 +97,11 @@ const AllMentor = () => {
             <p>Interests: {mentor.interests.join(', ')}</p>
             <button
               className="request-mentorship-btn"
-              onClick={() => handleRequestMentorship(mentor.email,mentor.mentor_name)}
-            >
-              Request Mentorship
-            </button>
+              onClick={() => handleRequestMentorship(mentor.email,mentor.mentor_name,mentor)}
+              disabled={requestSentStatus[mentor.mentor_id]} // Disable only the button for the specific mentor
+              >
+              {requestSentStatus[mentor.mentor_id] ? 'Request Mentorship' : 'Request Mentorship'} {/* Display message */}
+              </button>
           </div>
         ))}
       </div>
