@@ -53,10 +53,12 @@ const Mentor = () => {
   };
 
   return (
-    <div className="mentor-page">
-      <Sidebar setSelectedComponent={setSelectedComponent} />
-      <div className="mentor-content">
-        {renderComponent()}
+    <div className="mentor-container">
+      <div className="mentor-page">
+        <Sidebar setSelectedComponent={setSelectedComponent} />
+        <div className="mentor-content">
+          {renderComponent()}
+        </div>
       </div>
     </div>
   );

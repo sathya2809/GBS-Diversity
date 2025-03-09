@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MatchScoreChart from '../MatchScoreChart';
 import '../../Styles/Mentor.css';
 
 const AllMentor = () => {
@@ -60,7 +61,11 @@ const AllMentor = () => {
   }, []);
 
   // Handle mentorship request
+<<<<<<< HEAD
+  const handleRequestMentorship = async (mentorEmail, mentorName) => {
+=======
   const handleRequestMentorship = async (mentorEmail,mentorName,mentor) => {
+>>>>>>> 31215b3dcbe8de159d43b64fbf67104f80d00d18
     try {
       // Retrieve mentee_id from local storage
       const user = JSON.parse(localStorage.getItem('user')); // Parse localStorage data
@@ -70,9 +75,12 @@ const AllMentor = () => {
       }
 
       const menteeEmail = user.data.email;
-      const menteeName= user.data.mentee_name;
+      const menteeName = user.data.mentee_name;
       console.log(menteeEmail);
       //menteeEmail, mentorEmail, menteeName, mentorName
+<<<<<<< HEAD
+      alert(`Mentorship request sent to ${mentorName} (${mentorEmail}) from ${menteeName} (${menteeEmail})`);
+=======
       const response = await fetch('http://localhost:3000/connect', {
         method: 'POST',
         headers: {
@@ -93,6 +101,7 @@ const AllMentor = () => {
         ...prevStatus,
         [mentor.mentor_id]: true, // Disable the button for the specific mentor
       }));
+>>>>>>> 31215b3dcbe8de159d43b64fbf67104f80d00d18
     } catch (error) {
       console.error('Error requesting mentorship:', error);
       alert('Error requesting mentorship: ' + error.message);
@@ -109,6 +118,18 @@ const AllMentor = () => {
 
   return (
     <div className="all-mentor">
+      <h2>Match Score Chart</h2>
+      <div className="chart-container">
+        <MatchScoreChart />
+        <div className="legend-box">
+          <h3>Match Score Legend</h3>
+          <p>1: Lowest</p>
+          <p>2: Low</p>
+          <p>3: Moderate</p>
+          <p>4: High</p>
+          <p>5: Highest</p>
+        </div>
+      </div>
       <h2>All Mentors</h2>
       <div className="mentor-cards">
         {mentors.map((mentor) => (
@@ -152,11 +173,18 @@ const AllMentor = () => {
             </div>
             <button
               className="request-mentorship-btn"
+<<<<<<< HEAD
+              onClick={() => handleRequestMentorship(mentor.email, mentor.mentor_name)}
+            >
+              Request Mentorship
+            </button>
+=======
               onClick={() => handleRequestMentorship(mentor.email,mentor.mentor_name,mentor)}
               disabled={requestSentStatus[mentor.mentor_id]} // Disable only the button for the specific mentor
               >
               {requestSentStatus[mentor.mentor_id] ? 'Request Mentorship' : 'Request Mentorship'} {/* Display message */}
               </button>
+>>>>>>> 31215b3dcbe8de159d43b64fbf67104f80d00d18
           </div>
         ))}
       </div>
