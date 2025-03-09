@@ -149,3 +149,55 @@
 .more-btn:hover {
   background: #0056b3;
 }
+
+.skills-container {
+  margin: 0.5rem 0;
+}
+
+.skills-container p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.more-skills-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.more-skills-btn:hover {
+  color: #f3f3f3;
+}
+
+.interests-container {
+  margin: 0.5rem 0;
+}
+
+.interests-container p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.more-interests-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.more-interests-btn:hover {
+  color: #0056b3;
+}

@@ -5,7 +5,25 @@ const AllMentor = () => {
   const [mentors, setMentors] = useState([]);
   const [loading, setLoading] = useState(true); // For loading state
   const [error, setError] = useState(null); // For error handling
+  const [expandedSkills, setExpandedSkills] = useState({});
+  const [expandedInterests, setExpandedInterests] = useState({});
+
   const getRandomExperience = () => Math.floor(Math.random() * 5) + 1;
+
+  const toggleSkills = (mentorId) => {
+    setExpandedSkills(prev => ({
+      ...prev,
+      [mentorId]: !prev[mentorId]
+    }));
+  };
+
+  const toggleInterests = (mentorId) => {
+    setExpandedInterests(prev => ({
+      ...prev,
+      [mentorId]: !prev[mentorId]
+    }));
+  };
+
   // Fetch mentors from the API
   const fetchMentors = async () => {
     try {
@@ -87,9 +105,41 @@ const AllMentor = () => {
           <div key={mentor._id} className="mentor-card">
             <img src="/user.png" alt={mentor.name} className="mentor-photo" />
             <h3>{mentor.mentor_name}</h3>
-            <p>Skills: {mentor.skills.join(', ')}</p>
+            <div className="skills-container">
+              <p>
+                Skills: {
+                  expandedSkills[mentor._id] 
+                    ? mentor.skills.join(', ')
+                    : mentor.skills.slice(0, 2).join(', ') + (mentor.skills.length > 2 ? '' : '')
+                }
+                {mentor.skills.length > 2 && (
+                  <button 
+                    className="more-skills-btn"
+                    onClick={() => toggleSkills(mentor._id)}
+                  >
+                    {expandedSkills[mentor._id] ? 'Show Less' : 'More'}
+                  </button>
+                )}
+              </p>
+            </div>
             <p>Experience: {getRandomExperience()} years</p>
-            <p>Interests: {mentor.interests.join(', ')}</p>
+            <div className="interests-container">
+              <p>
+                Interests: {
+                  expandedInterests[mentor._id] 
+                    ? mentor.interests.join(', ')
+                    : mentor.interests.slice(0, 2).join(', ') + (mentor.interests.length > 2 ? '' : '')
+                }
+                {mentor.interests.length > 2 && (
+                  <button 
+                    className="more-interests-btn"
+                    onClick={() => toggleInterests(mentor._id)}
+                  >
+                    {expandedInterests[mentor._id] ? 'Show Less' : 'More'}
+                  </button>
+                )}
+              </p>
+            </div>
             <button
               className="request-mentorship-btn"
               onClick={() => handleRequestMentorship(mentor.email,mentor.mentor_name)}
